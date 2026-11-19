@@ -1,0 +1,13 @@
+# CUDA runtime libraries for GPU transcription (Windows x64).
+# ctranslate2 4.x uses CUDA 12, which needs the cuBLAS 12 and cuDNN 9 DLLs; the pip
+# nvidia-* wheels place them under site-packages\nvidia\*\bin and the plugin adds
+# those directories to PATH before spawning Python.
+#
+# Failing here is not fatal: lecture_doctor reports GPU transcription as unavailable and
+# transcription falls back to the CPU small model (roughly an order of magnitude slower).
+# Pinned on purpose: these packages do not publish a win_amd64 wheel for every release,
+# so an unpinned upgrade can resolve to a version with no Windows wheel at all.
+
+nvidia-cublas-cu12==12.9.2.10 ; sys_platform == "win32" and platform_machine == "AMD64"
+nvidia-cuda-nvrtc-cu12==12.9.86 ; sys_platform == "win32" and platform_machine == "AMD64"
+nvidia-cudnn-cu12==9.28.1.4 ; sys_platform == "win32" and platform_machine == "AMD64"

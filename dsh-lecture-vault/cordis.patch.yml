@@ -1,0 +1,4 @@
+- insert:
+    - id: lecture-vault
+      name: '@local/dsh-lecture-vault'
+      config: {}

@@ -1,0 +1,38 @@
+NOTICE — 听课入库（@local/dsh-lecture-vault）
+=================================================
+
+本包是原创实现：插件入口、工具定义、Python 侧脚本、模板、图标、文档均为为本项目编写，
+不包含任何第三方源码的拷贝。
+
+P0 阶段（当前版本 0.1.0）**没有移植任何上游代码**；下面列出设计与思路的来源，以便追溯。
+
+设计来源（只借鉴结论，未复制代码）
+--------------------------------
+1. sorrowKnight123/bilibili-persona — GPL-3.0
+   https://github.com/sorrowKnight123/bilibili-persona
+   借鉴：分P/字幕/音频取数的工作流顺序、课件插图与时间戳校验的分工。
+   约束：GPL-3.0 代码一行都没有进入本包（一旦进入，整个插件都要改为 GPL 分发）。
+   本包的取数层按工作流文档 §6 自行实现。
+
+2. yoli-mi/good-learning — MIT
+   https://github.com/yoli-mi/good-learning
+   借鉴：学习闭环（知识清单 / 备考计划 / 错题本 / 总结）的产物组织方式。
+   若后续分期移植该项目的脚本或渲染思路（P3 的 PDF / 导图），需要在该文件里补上
+   原作者版权声明与完整 MIT 许可证文本，并在对应源文件头注明来源。
+
+宿主接口
+--------
+工具定义直接交给 DSH 的 tools 注册表；参数 schema 的「author 属性表 → JSON Schema」
+规则按宿主 `@deepseek-ai/dsh-tools` 的公开约定重写（未导入、未拷贝宿主包，原因见
+README/DETAIL：该包被打进 app.asar，插件侧解析不到）。
+
+第三方 Python 依赖
+------------------
+运行期依赖见 py/requirements.txt（faster-whisper、yt-dlp、pypdf、PyMuPDF、pypinyin、
+Pillow、requests、certifi、nvidia-cublas-cu12、nvidia-cudnn-cu12）。它们各有自己的
+许可证，随 venv 安装，不随本包分发。
+
+Whisper 权重
+------------
+large-v3-turbo（Systran/faster-whisper-large-v3-turbo）由使用者本机下载到 workDir\models，
+不随本包分发。

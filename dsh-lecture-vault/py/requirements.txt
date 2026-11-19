@@ -1,0 +1,16 @@
+# Runtime dependencies for the Python side (install with: uv pip install -r requirements.txt).
+# Kept ASCII-only on purpose: Windows pip decodes requirement files with the locale codec
+# when there is no BOM, and non-ASCII comments break it on GBK systems.
+#
+# The CUDA runtime libraries live in requirements-cuda.txt: those two wheels weigh ~1.1 GB
+# and only enable GPU transcription, so a failure there must not block the pipeline
+# (the CPU small model still works).
+
+faster-whisper>=1.2,<2
+yt-dlp>=2025.1.0
+pypdf>=5.0
+PyMuPDF>=1.24
+pypinyin>=0.53
+Pillow>=10.4
+requests>=2.32
+certifi>=2024.8

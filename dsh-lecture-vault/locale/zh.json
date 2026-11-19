@@ -1,0 +1,7 @@
+{
+  "meta": {
+    "title": "听课入库",
+    "description": "把网课（B站 / YouTube / 钉钉回放 / 本地文件）变成 Obsidian 课程知识库：探测分P、取字幕或本地转写、术语纠错、课件解析、讲义校验与规范落盘。v1 不读视频画面，YouTube 需先配代理，学习通只做本地文件导入。",
+    "detail": "docs/DETAIL.md"
+  }
+}

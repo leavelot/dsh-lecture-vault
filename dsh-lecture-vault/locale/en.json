@@ -1,0 +1,7 @@
+{
+  "meta": {
+    "title": "Lecture to knowledge base",
+    "description": "Turns online lectures (Bilibili, YouTube, DingTalk replays, local files) into an Obsidian course vault: part listing, native subtitles or local transcription, terminology correction, courseware parsing, lecture linting and whitelisted writes. v1 does not read video frames, YouTube needs a proxy first, and Chaoxing only accepts local file import.",
+    "detail": "docs/DETAIL.md"
+  }
+}
